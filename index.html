@@ -262,10 +262,10 @@ function renderBook(){
     </div>
   </div>
   <div class="grid g2" style="margin-bottom:14px">
-    <div class="card"><div class="row" style="justify-content:space-between"><span class="sm mut">Meta (pág. ${b.start} → ${b.total})</span><span class="big" style="color:var(--cy)">${m.pct.toFixed(1)}%</span></div>
+    <div class="card"><div class="row" style="justify-content:space-between"><span class="sm mut">${b.deadline?'Meta até '+br(b.deadline):'Meta'}</span><span class="big" style="color:var(--cy)">${m.pct.toFixed(1)}%</span></div>
       <div class="bar" style="margin:8px 0"><i style="width:${m.pct}%;background:linear-gradient(90deg,#06b6d4,#3b82f6)"></i></div>
-      <div class="sm mut">Lidas na meta: <b style="color:var(--txt)">${m.done}</b> / ${m.goal} · Restam <b style="color:var(--cy)">${m.left}</b></div></div>
-    <div class="card"><div class="row" style="justify-content:space-between"><span class="sm mut">Livro inteiro (0 → ${b.total})</span><span class="big" style="color:var(--pu)">${m.pctBook.toFixed(1)}%</span></div>
+      <div class="sm mut">${b.status==='lido'?'Livro concluído 🎉':'Faltam <b style="color:var(--cy)">'+m.left+'</b> páginas'+(m.need!==null?' · <b style="color:var(--txt)">'+m.need.toFixed(1).replace('.',',')+'</b> por dia':'')}</div></div>
+    <div class="card"><div class="row" style="justify-content:space-between"><span class="sm mut">Progresso do livro</span><span class="big" style="color:var(--pu)">${m.pctBook.toFixed(1)}%</span></div>
       <div class="bar" style="margin:8px 0"><i style="width:${m.pctBook}%;background:linear-gradient(90deg,#7c3aed,#6366f1)"></i></div>
       <div class="sm mut">Parado na página <b style="color:var(--txt)">${b.page}</b> de ${b.total}</div></div>
   </div>
